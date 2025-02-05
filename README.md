@@ -42,3 +42,7 @@ The tool accepts:
 - Python 3.7+
 - Playwright
 - Chromium (installed via playwright)
+
+## Known Issues
+
+- '\n' in converted PNG
