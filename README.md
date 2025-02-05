@@ -4,7 +4,7 @@ Convert Mermaid diagram files to PNG images using Playwright.
 
 ## PNG example (after conversion)
 
-<img src="examples/deepseek-flow.png" width="300" height="560">
+<img src="examples/deepseek-flow.png" width="400" height="600">
 
 ## Installation
 
