@@ -1,0 +1,46 @@
+flowchart TB
+    Base[DeepSeek-V3-Base]
+
+    subgraph R1Zero[DeepSeek-R1-Zero Development]
+        RL1[Pure RL Training using GRPO Framework\nShao et al., 2024]
+        Steps[Thousands of RL Steps]
+        Perf1[Performance Achievements:\n- AIME 2024 pass@1: 15.6% → 71.0%\n- With majority voting: 86.7%\n- Matches OpenAI-o1-0912]
+        Issues[Identified Issues:\n- Poor readability\n- Language mixing]
+    end
+
+    subgraph R1[DeepSeek-R1 Enhanced Pipeline]
+        CD[Thousands of Cold-start Data Collection]
+        FT1[Initial Fine-tuning on Cold-start Data]
+        RL2[Reasoning-oriented RL\nSimilar to R1-Zero approach]
+        RS[Rejection Sampling on RL Checkpoint]
+        SD[Merge with DeepSeek-V3 Supervised Data:\n- Writing\n- Factual QA\n- Self-cognition]
+        FT2[Model Retraining with Combined Data]
+        RL3[Final RL Process\nwith All-scenario Prompts]
+        Final[Final DeepSeek-R1\n- Performance matches OpenAI-o1-1217\n- Improved readability\n- Better language consistency]
+    end
+
+    Base --> RL1
+    RL1 --> Steps
+    Steps --> Perf1
+    Perf1 --> Issues
+
+    Base --> CD
+    CD --> FT1
+    FT1 --> RL2
+    RL2 --> RS
+    RS --> SD
+    SD --> FT2
+    FT2 --> RL3
+    RL3 --> Final
+
+    %% Knowledge transfer from R1-Zero to R1
+    Issues -.-> RL2
+    Perf1 -.-> RL2
+
+    classDef performance fill:#e6ffe6
+    classDef issue fill:#ffe6e6
+    classDef process fill:#e6f3ff
+    
+    class Perf1,Final performance
+    class Issues issue
+    class RL1,RL2,RL3,FT1,FT2,RS,CD,SD process
