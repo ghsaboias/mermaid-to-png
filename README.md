@@ -2,6 +2,10 @@
 
 Convert Mermaid diagram files to PNG images using Playwright.
 
+## PNG example (after conversion)
+
+![PNG Example](examples/deepseek-flow.png)
+
 ## Installation
 
 ```bash
